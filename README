@@ -1,6 +1,8 @@
 基于flexpaper做的小程序，类式于百度文档，上传pdf文件，自动转成swf，由flexpaper做在线阅读
 目前只做了管理员整体上传文件，如需用户自己上传，可做修改
 
+ruby1.8.7 + rails 2.3.11
+
 http://code.google.com/p/flexpaper/downloads/list 
 
 http://flexpaper.devaldi.com/demo/
