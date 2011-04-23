@@ -1,0 +1,14 @@
+修改config/database.yml
+修改config/settings.yml default_password是默认密码
+修改db/seeds.rb里面的内容初始化部门和人员信息
+
+rake db:create  #建库
+rake db:migrate #建表
+rake db:seed   #导入初始化信息
+
+
+windows下测试需要下载swftools
+http://www.swftools.org/download.html
+安装后修改user_docs_controller.rb 34行
+
+ruby script/server

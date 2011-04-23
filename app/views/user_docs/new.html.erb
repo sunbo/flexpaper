@@ -1,0 +1,23 @@
+<h1>上传文件</h1>
+
+<% form_for(:user_doc, :url => user_docs_path, :html => { :multipart => true}) do |f| %>
+
+    <p>
+      <%= f.label :user_id,"选择要上传的用户" %><br />
+      <%= f.select :user_id, @users.collect {|p| [ p.name, p.id ] } , { :include_blank => true } %>
+      <%= f.error_message_on :user_id %>
+    </p>
+    
+     <p>
+         <%= f.label :doc , "选择文件"%><br />
+         <%= f.file_field :doc %>
+         <%= f.error_message_on  :doc_file_name %>
+         <%= f.error_message_on  :doc_content_type %>
+     </p>
+     <p>
+        <%= f.submit '确认上传'%>
+     </p>
+ <% end %>
+
+ <%= render :partial => "doc_list" %>
+ 

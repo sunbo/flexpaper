@@ -1,0 +1,7 @@
+<% @have_doc_users.each do |user_doc| %>
+     <%= image_tag 'pdf.png' %><br />
+     <%= user_doc.user.name %>
+     <%= user_doc.doc_file_name %>
+     <%= link_to '删除', user_doc_url(user_doc), :confirm => '确定要删除此文件吗?', :method => :delete %><br />
+<% end %>
+

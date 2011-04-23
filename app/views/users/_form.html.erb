@@ -1,0 +1,22 @@
+ <ul>
+    <% @departments.each do |department| %>
+       <li>
+          <%= department.name %>
+
+          <% department.users.each  do |user| %>
+           <ul>
+             <% if flag == "user_index" %>
+                <%= user.login %><br />
+                <%= user.name %><br />
+                <%= user.sex %><br />
+                <%= user.email %><br />
+              <% elsif flag == "user_new" %>
+                 <%= user.login %> <%= user.name %> <%= user.sex %>
+              <% elsif flag == "user_doc_index" %>
+                 <%= user.user_doc ?  link_to("#{user.name} #{image_tag 'y.png'}" , user_docs_path(:id => user.user_doc.id )) : user.name%>
+              <% end %>
+            </ul>
+          <% end %>
+       </li>
+    <% end %>
+ </ul>

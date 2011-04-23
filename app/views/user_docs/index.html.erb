@@ -1,0 +1,5 @@
+<%= render :partial=>'users/form',  :locals => { :flag => 'user_doc_index' } %>
+
+<%= flex_paper( params = {},
+                  flashvars = { :SwfFile => "escape(\"#{@swf}\")"},
+                  attributes = {}, config = {})%>

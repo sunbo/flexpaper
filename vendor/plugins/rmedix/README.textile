@@ -1,0 +1,55 @@
+h1. Rmedix::Rails Media Player and Document Viewer 
+
+
+h2. What Is It?
+
+*Rmedix* is a Rails plugin that presents an ActionView wrapper for rendering "Flowplayer":http://flowplayer.org and "FlexPaper":http://flexpaper.devaldi.com/default.jsp
+
+"FlexPaper":http://flexpaper.devaldi.com/default.jsp is an open source light weight document viewer component designed to work together with libraries such as PDF2SWF, making it possible to display PDF files in Adobe Flex and other Flash based applications. 
+
+
+h2. Getting Started
+
+h3. Rails 3.x
+
+@rails plugin install git://github.com/attractor/rmedix.git@
+
+This will automatically setup  Rmedix for your rails application.
+
+@rake rmedix:install@
+
+h2. How to use
+
+Include javascript into layout or view file
+
+@<%= javascript_include_tag :defaults, 'swfobject', 'flexpaper_flash', 'jquery' %>@
+
+for flowplayer
+@<%= javascript_include_tag :defaults, 'flowplayer-3.2.4.min', 'flowplayer.playlist-3.0.8.min', 'jquery' %>@
+
+
+then In your views use it like
+
+@<%= flowplayer() %>@
+ or 
+%div.clips.petrol{:style => "float:left"}     
+      %a{:href =>"${url}"}                                  
+        ${title}                                  
+        %span ${subTitle}                         
+        %em ${time}                               
+    = flowplayer( {:flashvars => {                
+          :baseUrl => "http://blip.tv/file/get",  
+          :subTitle => "videos from blip"}}, @playlist)
+
+ for FlexPaper
+
+@<%= flexpaper() %>@
+
+
+The above command will render flash player with default configuration.
+The helper method for flah player looks like:
+@flexpaper(swf_file, params = {}, flashvars = {}, attributes = {})@
+
+
+
+Copyright (c) 2010 Marko Tunjić, released under the MIT license

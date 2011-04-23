@@ -1,0 +1,57 @@
+<h1>添加新用户</h1>
+
+<% @user.password = @user.password_confirmation = APP_CONFIG[:default_password] %>
+
+<% form_for :user, :url => users_path do |f| -%>
+
+  <p>
+    <%= f.label :department_id, "所在部门" %><br />
+    <%= f.select :department_id, Department.all.collect {|p| [ p.name, p.id ] } , { :include_blank => true } %>
+    <%= f.error_message_on :department_id %>
+  </p>
+
+  <p>
+    <%= f.label :login, "登录名"%><br/>
+    <%= f.text_field :login %>
+    <%= f.error_message_on :login %>
+  </p>
+
+  <p>
+    <%= f.label :name, "真实姓名" %><br/>
+    <%= f.text_field :name %>
+    <%= f.error_message_on :name %>
+  </p>
+  
+  <p>
+    <%= f.label :sex, "性别" %>
+    <%= f.radio_button('sex','男')%>男
+    <%= f.radio_button('sex','女')%>女
+    <%= f.error_message_on :sex %>
+  </p>
+
+  <p>
+    <%= f.label :email, "邮箱" %><br/>
+    <%= f.text_field :email %>
+    <%= f.error_message_on :email %>
+  </p>
+
+  <p>
+    <%= f.label :password, "密码" %><br/>
+    <%= f.password_field :password, :vlaue => APP_CONFIG[:default_password] %>
+    <%= f.error_message_on :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation, "重复密码" %><br/>
+    <%= f.password_field :password_confirmation, :vlaue => APP_CONFIG[:default_password]  %>
+    <%= f.error_message_on :password_confirmation %>
+  </p>
+
+  <p>
+    <%= submit_tag '确定' %>
+  </p>
+<% end -%>
+
+
+<%= render :partial=>'form',  :locals => { :flag => 'user_new' } %>
+

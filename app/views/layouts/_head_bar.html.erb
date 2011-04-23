@@ -1,0 +1,16 @@
+<div class="login">
+  <ul>
+    <li>
+          <% if logged_in? -%>
+            您好：<%=  current_user.name %> |
+            <% if admin? %>
+              <%= link_to "添加用户", new_user_path, { :title => "添加用户" } %> |
+              <%= link_to "查看用户", users_path, { :title => "查看用户" } %> |
+              <%= link_to "上传文件", new_user_doc_path, { :title => "上传文件" } %> |
+              <%= link_to "查看文件", user_docs_path, { :title => "查看文件" } %> |
+            <% end %>
+            <%= link_to "登出", logout_path, { :title => "登出" } %>
+          <% end -%>
+    </li>
+  </ul>
+</div>
