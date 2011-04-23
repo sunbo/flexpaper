@@ -18,6 +18,13 @@ rake db:seed   #导入初始化信息
 
 安装swftools
 根据系统不同下载不同swftools http://www.swftools.org/download.html
+wget http://www.swftools.org/swftools-0.9.1.tar.gz
+./configure --prefix=/usr/local/swftools
+sudo make && make install
+ 
+pdf2swf test.pdf -o test.swf -T 9 -f
+
+安装地址如果改变修改user_docs_controller.rb 32行
 安装后修改user_docs_controller.rb 34行
 
 ruby script/server
