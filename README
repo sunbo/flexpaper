@@ -1,0 +1,26 @@
+基于flexpaper做的小程序，类式于百度文档，上传pdf文件，自动转成swf，由flexpaper做在线阅读
+目前只做了管理员整体上传文件，如需用户自己上传，可做修改
+
+http://code.google.com/p/flexpaper/downloads/list 
+
+http://flexpaper.devaldi.com/demo/
+
+使用
+修改config/database.yml
+修改config/settings.yml default_password是默认密码
+修改db/seeds.rb里面的内容初始化部门和人员信息
+
+rake db:create  #建库
+rake db:migrate #建表
+rake db:seed   #导入初始化信息
+
+安装swftools
+根据系统不同下载不同swftools http://www.swftools.org/download.html
+安装后修改user_docs_controller.rb 34行
+
+ruby script/server
+
+login admin
+password aaaaaaaa
+
+gtalk or msn or email : yueyuegigi21@gmail.com
